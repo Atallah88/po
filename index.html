@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقعي</title>
+    <style>
+        /* تنسيق CSS */
+        body {
+            margin: 0;
+            font-family: "Brush Script MT", cursive;
+        }
+
+        /* قائمة التنقل */
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: black;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a, .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover, .dropdown:hover .dropbtn {
+            background-color: white;
+        }
+
+        li.dropdown {
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        a.two:link { color: #ff0000; }
+        a.two:visited { color: #0000ff; }
+        a.two:hover { font-size: 150%; }
+
+        /* شاشة التحميل */
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        #loader img {
+            width: 100%; /* عرض الصورة 100% */
+            height: 100%; /* ارتفاع الصورة 100% */
+            object-fit: cover; /* يجعل الصورة تغطي المساحة بالكامل */
+        }
+
+        #content {
+            display: none; /* محتوى الصفحة مخفي حتى تظهر الشاشة */
+            padding: 20px;
+        }
+
+        #example1 {
+            border: 1px solid black;
+            background: url('https://scontent.xx.fbcdn.net/v/t1.15752-9/462546669_8290679594391053_5863199117840225074_n.png?stp=dst-png_s480x480&_nc_cat=108&ccb=1-7&_nc_sid=0024fc&_nc_ohc=ERLXElvz1D4Q7kNvgGpJBRy&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.xx&_nc_gid=AtndH0SGudaQQkvfJ832f_2&oh=03_Q7cD1QHRXnZ_28Z0I6YWXLo5FDFVzthxP57PLq-f1Xn91iKQug&oe=673CBE0B');
+            background-size: cover; /* تغطي الخلفية المساحة بالكامل */
+            background-repeat: no-repeat;
+            padding: 15px;
+            margin: 20px 0; /* إضافة مسافة أعلى وأسفل */
+        }
+
+        /* استجابة للأجهزة */
+        @media screen and (max-width: 600px) {
+            li {
+                float: none; /* جعل العناصر قائمة عمودية */
+                width: 100%; /* عرض كامل */
+            }
+
+            #loader img {
+                height: auto; /* ارتفاع تلقائي للصورة */
+            }
+
+            #example1 {
+                padding: 10px; /* تقليل الحشوة */
+            }
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#abm">About Me</a></li>
+    <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Dropdown</a>
+        <div class="dropdown-content">
+            <a href="https://www.instagram.com/atallh_d/?hl=ar">Instagram</a>
+            <a href="https://snapchat.com/t/kJqbvNhK">Snapchat</a>
+            <a href="https://www.tiktok.com/@ia_di8">TikTok</a>
+        </div>
+    </li>
+</ul>
+
+<div id="loader">
+    <img src="https://i.pinimg.com/originals/b1/90/3e/b1903ec28cf7dc3f9c51da4b57fd7a2a.gif" alt="Loading...">
+</div>
+
+<div id="content">
+    <h1></h1>
+    <p></p>
+    <!-- يمكنك إضافة المزيد من المحتوى هنا -->
+</div>
+
+<div id="example1">
+    <br><br>
+    <h2 id="abm">About Me</h2>
+    <p>Hello! I’m Atallah, a student majoring in Computer Science. I aspire to create websites and small projects that help people achieve their digital goals. Currently, I’m working on developing my skills in web design, although I feel that I lack sufficient experience in this field.</p>
+
+    <p>In my free time, I think about creating my own website, where I aim to assist others in designing their websites or small online stores. I believe in the power of technology to enhance people’s lives, and I want to be part of this transformation.</p>
+    <p>If you’d like to get in touch with me, you can find me on Instagram at: <a class="two" href="https://www.instagram.com/atallh_d/?hl=ar" target="_blank"> atallh_d</a></p>
+</div>
+
+<script>
+    // كود JavaScript
+    window.onload = function() {
+        setTimeout(function() {
+            document.getElementById("loader").style.display = "none"; // إخفاء شاشة التحميل
+            document.getElementById("content").style.display = "block"; // إظهار محتوى الصفحة
+        }, 3000); // الوقت بالميلي ثانية (3000 = 3 ثوانٍ)
+    };
+</script>
+</body>
+</html>
